@@ -35,15 +35,19 @@
                             <img src="assets/images/logo.png" alt="logo" height="32">
                         </a>
                         <h4 class="fw-bold mt-3">Bem-vindo de volta</h4>
-                        <p class="text-muted w-lg-75 mx-auto">Informe seu e-mail e senha para acessar o sistema.</p>
+                        <p class="text-muted w-lg-75 mx-auto">Informe seu usuário e senha para acessar o sistema.</p>
                     </div>
 
                     <div class="card p-4 rounded-4">
                         <form id="loginForm">
+                            <div id="loginError" class="alert alert-danger d-none" role="alert">
+                                Usuário ou senha inválidos.
+                            </div>
+
                             <div class="mb-3">
-                                <label for="userEmail" class="form-label">E-mail <span class="text-danger">*</span></label>
+                                <label for="userName" class="form-label">Usuário <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <input type="email" class="form-control" id="userEmail" placeholder="voce@exemplo.com" required>
+                                    <input type="text" class="form-control" id="userName" placeholder="admin" autocomplete="username" required>
                                 </div>
                             </div>
 
@@ -86,15 +90,24 @@
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 
-    <!-- Login sem backend: guarda a sessão no navegador e vai para a home -->
+    <!-- Login sem backend: valida admin/admin, guarda a sessão no navegador e vai para a home -->
     <script>
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            var email = document.getElementById('userEmail').value.trim();
+            var user = document.getElementById('userName').value.trim();
+            var pass = document.getElementById('userPassword').value;
+            var errorBox = document.getElementById('loginError');
+
+            if (user !== 'admin' || pass !== 'admin') {
+                errorBox.classList.remove('d-none');
+                return;
+            }
+
+            errorBox.classList.add('d-none');
             var remember = document.getElementById('rememberMe').checked;
             var storage = remember ? localStorage : sessionStorage;
             storage.setItem('inspinia_auth', '1');
-            storage.setItem('inspinia_user', email);
+            storage.setItem('inspinia_user', user);
             window.location.href = 'index.html';
         });
     </script>
