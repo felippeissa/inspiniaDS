@@ -3,17 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Home | SISLOG</title>
+    <title>Fluxo do Credenciamento | SISLOG</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="SISLOG — Sistema de Logística e Contratações">
+    <meta name="description" content="SISLOG — Fluxo do Credenciamento de Fornecedores">
     <meta name="author" content="SISLOG">
 
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Theme Config Js -->
     <script src="assets/js/config.js"></script>
 
-    <!-- Proteção de sessão -->
     <script>
         if (sessionStorage.getItem('inspinia_auth') !== '1' && localStorage.getItem('inspinia_auth') !== '1') {
             window.location.replace('login.html');
@@ -25,9 +22,7 @@
         }
     </script>
 
-    <!-- Vendor css -->
     <link href="assets/css/vendors.min.css" rel="stylesheet" type="text/css">
-    <!-- App css -->
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -47,35 +42,27 @@
                 </span>
             </a>
 
-            <button class="button-on-hover">
-                <i class="ti ti-menu-4 fs-22 align-middle"></i>
-            </button>
-            <button class="button-close-offcanvas">
-                <i class="ti ti-x align-middle"></i>
-            </button>
+            <button class="button-on-hover"><i class="ti ti-menu-4 fs-22 align-middle"></i></button>
+            <button class="button-close-offcanvas"><i class="ti ti-x align-middle"></i></button>
 
             <div class="scrollbar" data-simplebar>
                 <ul class="side-nav">
                     <li class="side-nav-title">Menu</li>
-
                     <li class="side-nav-item">
-                        <a href="index.html" class="side-nav-link active">
+                        <a href="index.html" class="side-nav-link">
                             <span class="menu-icon"><i class="ti ti-home"></i></span>
                             <span class="menu-text">Home</span>
                         </a>
                     </li>
-
                     <li class="side-nav-title">Contratações</li>
-
                     <li class="side-nav-item">
                         <a href="contratacoes.html" class="side-nav-link">
                             <span class="menu-icon"><i class="ti ti-files"></i></span>
                             <span class="menu-text">Consulta de Processos</span>
                         </a>
                     </li>
-
                     <li class="side-nav-item">
-                        <a href="fluxo.html" class="side-nav-link">
+                        <a href="fluxo.html" class="side-nav-link active">
                             <span class="menu-icon"><i class="ti ti-route"></i></span>
                             <span class="menu-text">Fluxo do Credenciamento</span>
                         </a>
@@ -99,14 +86,12 @@
                             <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
                         </a>
                     </div>
-
                     <button class="sidenav-toggle-button btn btn-primary btn-icon">
                         <i class="ti ti-menu-4 fs-22"></i>
                     </button>
                 </div>
 
                 <div class="d-flex align-items-center gap-2">
-                    <!-- System Switcher Dropdown -->
                     <div class="topbar-item">
                         <div class="dropdown">
                             <button class="topbar-link fw-bold" data-bs-toggle="dropdown" data-bs-offset="0,21" type="button" aria-haspopup="false" aria-expanded="false">
@@ -127,7 +112,6 @@
                         </div>
                     </div>
 
-                    <!-- User Dropdown -->
                     <div class="topbar-item nav-user">
                         <div class="dropdown">
                             <a class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown" data-bs-offset="0,19" href="#!" aria-haspopup="false" aria-expanded="false">
@@ -154,113 +138,74 @@
         </header>
         <!-- Topbar End -->
 
-        <!-- Content Page -->
         <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
 
                     <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
                         <div class="flex-grow-1">
-                            <h4 class="fs-18 fw-semibold m-0">Home</h4>
+                            <h4 class="fs-18 fw-semibold m-0">Fluxo do Credenciamento de Fornecedores</h4>
                         </div>
                         <div class="text-end">
                             <ol class="breadcrumb m-0 py-0">
-                                <li class="breadcrumb-item">SISLOG</li>
-                                <li class="breadcrumb-item active">Home</li>
+                                <li class="breadcrumb-item"><a href="index.html">SISLOG</a></li>
+                                <li class="breadcrumb-item">Contratações</li>
+                                <li class="breadcrumb-item active">Fluxo do Credenciamento</li>
                             </ol>
                         </div>
                     </div>
 
-                    <!-- Indicadores -->
-                    <div class="row">
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="avatar-lg flex-shrink-0 bg-success bg-opacity-10 text-success rounded-3 d-flex align-items-center justify-content-center">
-                                            <i class="ti ti-progress fs-28"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="mb-0" id="statAndamento">0</h3>
-                                            <p class="text-muted mb-0">Em Andamento</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Fases legais -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Fases legais (minuta de decreto)</h4>
                         </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="avatar-lg flex-shrink-0 bg-secondary bg-opacity-10 text-secondary rounded-3 d-flex align-items-center justify-content-center">
-                                            <i class="ti ti-pencil fs-28"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="mb-0" id="statPreparatoria">0</h3>
-                                            <p class="text-muted mb-0">Fase Preparatória</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="avatar-lg flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center">
-                                            <i class="ti ti-users-group fs-28"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="mb-0" id="statCredenciados">0</h3>
-                                            <p class="text-muted mb-0">Fornecedores credenciados</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="avatar-lg flex-shrink-0 bg-info bg-opacity-10 text-info rounded-3 d-flex align-items-center justify-content-center">
-                                            <i class="ti ti-speakerphone fs-28"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="mb-0" id="statPublicados">0</h3>
-                                            <p class="text-muted mb-0">Editais publicados</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                            <div class="row g-3 text-center align-items-stretch" id="fasesLegais"></div>
                         </div>
                     </div>
 
-                    <!-- Processos recentes -->
                     <div class="row">
-                        <div class="col-12">
+                        <!-- Jornada do usuário -->
+                        <div class="col-xl-7">
                             <div class="card">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title mb-0">Processos recentes</h4>
-                                    <a href="contratacoes.html" class="btn btn-primary btn-sm">
-                                        <i class="ti ti-plus me-1"></i>Novo processo
-                                    </a>
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Jornada do usuário no SISLOG</h4>
+                                </div>
+                                <div class="card-body" id="jornada"></div>
+                            </div>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-xl-5">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Status do credenciamento</h4>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
-                                        <table class="table table-hover table-centered mb-0">
+                                        <table class="table table-centered mb-0">
                                             <thead class="bg-light bg-opacity-25">
-                                                <tr>
-                                                    <th>Identificação</th>
-                                                    <th>Objeto</th>
-                                                    <th>Modalidade</th>
-                                                    <th>Status</th>
-                                                    <th>Criado em</th>
-                                                    <th class="text-center">Ações</th>
-                                                </tr>
+                                                <tr><th>Status</th><th>Descrição</th></tr>
                                             </thead>
-                                            <tbody id="tabelaRecentes"></tbody>
+                                            <tbody id="tabelaStatus"></tbody>
                                         </table>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Premissas normativas</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="mb-0 text-muted">
+                                        <li>O credenciamento permanece <strong>aberto durante a vigência do edital</strong>.</li>
+                                        <li>Edital e lista de credenciados disponíveis no sistema e no <strong>PNCP</strong>.</li>
+                                        <li>O credenciamento <strong>não obriga</strong> a Administração a contratar.</li>
+                                        <li>Habilitação analisada pela <strong>comissão de contratação</strong>.</li>
+                                        <li>Cabem <strong>impugnações, esclarecimentos e recursos</strong> conforme o edital.</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -279,36 +224,77 @@
                 </div>
             </footer>
         </div>
-        <!-- End Content Page -->
 
     </div>
 
-    <!-- Vendor js -->
     <script src="assets/js/vendors.min.js"></script>
-    <!-- App js -->
     <script src="assets/js/app.js"></script>
-    <!-- SISLOG state -->
     <script src="js/sislog.js"></script>
 
     <script>
         (function () {
-            var procs = SISLOG.getAll();
+            var fases = [
+                { n: 1, titulo: 'Fase Preparatória', icone: 'ti-pencil', desc: 'Instrução do processo, funções essenciais, dados, itens e documentos.' },
+                { n: 2, titulo: 'Divulgação do Edital', icone: 'ti-speakerphone', desc: 'Publicação no sistema e no PNCP. Processo passa a Em Andamento.' },
+                { n: 3, titulo: 'Requerimento de Participação', icone: 'ti-file-invoice', desc: 'Interessados apresentam requerimento, proposta e documentos.' },
+                { n: 4, titulo: 'Habilitação', icone: 'ti-checklist', desc: 'Comissão analisa a documentação; diligências quando cabíveis.' },
+                { n: 5, titulo: 'Fase Recursal', icone: 'ti-scale', desc: 'Intenção e julgamento de recursos, conforme o edital.' },
+                { n: 6, titulo: 'Lista de Credenciados', icone: 'ti-users-group', desc: 'Divulgação e manutenção da lista no sistema e no PNCP.' }
+            ];
 
-            document.getElementById('statAndamento').textContent = procs.filter(function (p) { return p.status === 'Em Andamento'; }).length;
-            document.getElementById('statPreparatoria').textContent = procs.filter(function (p) { return p.status === 'Fase Preparatória'; }).length;
-            document.getElementById('statCredenciados').textContent = procs.reduce(function (n, p) { return n + (p.credenciados || []).length; }, 0);
-            document.getElementById('statPublicados').textContent = procs.filter(function (p) { return p.publicadoEm; }).length;
+            document.getElementById('fasesLegais').innerHTML = fases.map(function (f, i) {
+                return '<div class="col-md-4 col-xl-2 d-flex">' +
+                    '<div class="card border shadow-none mb-0 flex-fill">' +
+                    '<div class="card-body px-2">' +
+                    '<div class="avatar-lg mx-auto mb-2 bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center"><i class="ti ' + f.icone + ' fs-24"></i></div>' +
+                    '<span class="badge text-bg-primary mb-1">' + f.n + '</span>' +
+                    '<h5 class="fs-14 mb-1">' + f.titulo + '</h5>' +
+                    '<p class="text-muted fs-12 mb-0">' + f.desc + '</p>' +
+                    '</div></div></div>';
+            }).join('');
 
-            var recentes = procs.slice().sort(function (a, b) { return (b.criadoEm || '').localeCompare(a.criadoEm || ''); }).slice(0, 5);
-            document.getElementById('tabelaRecentes').innerHTML = recentes.map(function (p) {
-                return '<tr>' +
-                    '<td class="fw-semibold"><a href="processo.html?id=' + p.id + '" class="link-reset">' + p.identificacao + '</a></td>' +
-                    '<td class="text-truncate" style="max-width: 340px;">' + p.objeto + '</td>' +
-                    '<td>' + p.modalidade + '</td>' +
-                    '<td>' + SISLOG.badge(p.status) + '</td>' +
-                    '<td>' + SISLOG.dataBR(p.criadoEm) + '</td>' +
-                    '<td class="text-center"><a href="processo.html?id=' + p.id + '" class="btn btn-sm btn-soft-primary"><i class="ti ti-eye me-1"></i>Abrir</a></td>' +
-                    '</tr>';
+            var jornada = [
+                'Usuário acessa o SISLOG',
+                'Acessa o menu Contratações',
+                'Cria um novo processo',
+                'Seleciona a modalidade Credenciamento',
+                'Preenche os dados mínimos obrigatórios e salva',
+                'Sistema cria o processo em Fase Preparatória',
+                'Configura Funções Essenciais, Dados, Itens e Orçamento e Documentos Adicionais',
+                'Publica o edital de credenciamento',
+                'Sistema altera o status para Em Andamento',
+                'Acompanha avisos, esclarecimentos e impugnações',
+                'Acompanha propostas e classificação',
+                'Analisa habilitação (com diligências e recursos, se necessário)',
+                'Encerramento / homologação e lista de credenciados'
+            ];
+
+            document.getElementById('jornada').innerHTML = jornada.map(function (passo, i) {
+                var ultimo = i === jornada.length - 1;
+                return '<div class="d-flex gap-3">' +
+                    '<div class="d-flex flex-column align-items-center">' +
+                    '<div class="avatar-sm flex-shrink-0 ' + (ultimo ? 'bg-success text-white' : 'bg-primary bg-opacity-10 text-primary') + ' rounded-circle d-flex align-items-center justify-content-center fw-bold">' + (i + 1) + '</div>' +
+                    (ultimo ? '' : '<div class="border-start border-2 flex-grow-1 my-1" style="min-height: 14px;"></div>') +
+                    '</div>' +
+                    '<p class="mb-2 pt-2">' + passo + '</p>' +
+                    '</div>';
+            }).join('');
+
+            var descStatus = {
+                'Fase Preparatória': 'Status inicial após salvar a contratação.',
+                'Em Andamento': 'Após finalização da publicação do edital.',
+                'Suspensa': 'Procedimento temporariamente suspenso.',
+                'Revogada': 'Revogado por conveniência/oportunidade.',
+                'Anulada': 'Anulado por vício de legalidade.',
+                'Encerrada Parcial': 'Parte encerrada; itens/fornecedores em andamento.',
+                'Encerrada': 'Procedimento encerrado.',
+                'Homologada Parcial': 'Homologação parcial.',
+                'Homologada': 'Procedimento homologado.',
+                'Arquivado': 'Procedimento arquivado.'
+            };
+
+            document.getElementById('tabelaStatus').innerHTML = SISLOG.STATUS.map(function (s) {
+                return '<tr><td>' + SISLOG.badge(s) + '</td><td class="text-muted">' + descStatus[s] + '</td></tr>';
             }).join('');
         })();
     </script>

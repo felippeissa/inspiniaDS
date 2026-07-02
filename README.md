@@ -1,21 +1,22 @@
-# inspiniaDS
+# SISLOG (branch SISLOG)
 
-Monorepo com o design system e o **SISLOG** (o sistema real — todo desenvolvimento novo acontece aqui).
+Sistema de Logística e Contratações — módulo **Contratações / Credenciamento de Fornecedores**.
+Construído em HTML/CSS/JS sobre o design system INSPINIA (branch `main`, pasta `ds/`).
 
 ## Estrutura
 
 ```
-index.html        → redireciona para o SISLOG
-SISLOG/           → o sistema (login + home); usa os assets de ../ds
-  login.html      → login (admin / admin, sem backend)
-  index.html      → home protegida por login
-ds/               → design system INSPINIA v4.8.0 (referência)
-  *.html          → ~220 páginas com todos os componentes do DS
-  assets/         → css, js, imagens e plugins compartilhados
-ds-source/        → pacote original completo (local, fora do git)
+index.html          → redireciona para o SISLOG
+SISLOG/
+  login.html        → login (admin / admin, sem backend)
+  index.html        → home com indicadores e processos recentes
+  contratacoes.html → consulta de processos + novo processo (RF01)
+  processo.html     → processo de credenciamento: Processo, Configuração e
+                      Seleção de fornecedor (RF02–RF18)
+  fluxo.html        → fases legais, jornada do usuário e status
+  js/sislog.js      → estado da aplicação (localStorage, dados de exemplo)
+  assets/           → design system (css, js, imagens, plugins)
 ```
-
-No header das homes há um dropdown (ao lado do idioma) que alterna entre **InspiniaDS** e **SISLOG**.
 
 ## Como rodar
 
@@ -23,14 +24,15 @@ No header das homes há um dropdown (ao lado do idioma) que alterna entre **Insp
 python -m http.server 8123
 ```
 
-Abra `http://localhost:8123/` — redireciona para o login do SISLOG. Credenciais: `admin` / `admin`.
+Abra `http://localhost:8123/` — credenciais `admin` / `admin`.
 
-## Deploy
+## Funcionalidades (base: requisitos de credenciamento)
 
-GitHub Pages servindo a branch `main` (raiz): https://felippeissa.github.io/inspiniaDS/
+- Modalidade **Credenciamento** no cadastro de contratação; processo criado em **Fase Preparatória**
+- Publicação do edital move o processo para **Em Andamento**
+- Campos de disputa/lance removidos (Dados, Itens, Publicação) conforme RF04/RF05/RF08
+- Habilitação alimenta a **Lista de Credenciados**; diligências nas hipóteses da RN07
+- Avisos, esclarecimentos, impugnações, recursos (em validação), encerramento e status item/lote
+- Pendências de negócio (P02–P07) sinalizadas nas próprias telas
 
-## Login
-
-Sem banco de dados: valida `admin`/`admin` no navegador e guarda `inspinia_auth` no
-`sessionStorage` (ou `localStorage` com "Manter conectado"). O `index.html` de cada
-sistema redireciona para o login quando a sessão não existe.
+Sem banco de dados: estado em `localStorage` com dados de exemplo.
