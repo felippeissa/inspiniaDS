@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <title>Entrar | inspiniaDS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Login do sistema inspiniaDS">
+    <meta name="author" content="inspiniaDS">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="assets/css/vendors.min.css" rel="stylesheet" type="text/css">
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div class="auth-box overflow-hidden align-items-center d-flex">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-4 col-md-6 col-sm-8">
+                    <div class="auth-brand text-center mb-4">
+                        <a href="login.html" class="logo-dark">
+                            <img src="assets/images/logo-black.png" alt="logo escuro" height="32">
+                        </a>
+                        <a href="login.html" class="logo-light">
+                            <img src="assets/images/logo.png" alt="logo" height="32">
+                        </a>
+                        <h4 class="fw-bold mt-3">Bem-vindo de volta</h4>
+                        <p class="text-muted w-lg-75 mx-auto">Informe seu e-mail e senha para acessar o sistema.</p>
+                    </div>
+
+                    <div class="card p-4 rounded-4">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label">E-mail <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" id="userEmail" placeholder="voce@exemplo.com" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="userPassword" class="form-label">Senha <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="userPassword" placeholder="••••••••" required>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input form-check-input-light fs-14" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Manter conectado</label>
+                                </div>
+                                <a href="auth-reset-pass.html" class="text-decoration-underline link-offset-3 text-muted">Esqueceu a senha?</a>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary fw-semibold py-2">Entrar</button>
+                            </div>
+                        </form>
+
+                        <p class="text-muted text-center mt-4 mb-0">
+                            Novo por aqui? <a href="auth-sign-up.html" class="text-decoration-underline link-offset-3 fw-semibold">Criar uma conta</a>
+                        </p>
+                    </div>
+
+                    <p class="text-center text-muted mt-4 mb-0">
+                        © <script>document.write(new Date().getFullYear())</script> inspiniaDS
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendors.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Login sem backend: guarda a sessão no navegador e vai para a home -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = document.getElementById('userEmail').value.trim();
+            var remember = document.getElementById('rememberMe').checked;
+            var storage = remember ? localStorage : sessionStorage;
+            storage.setItem('inspinia_auth', '1');
+            storage.setItem('inspinia_user', email);
+            window.location.href = 'index.html';
+        });
+    </script>
+
+</body>
+
+</html>
