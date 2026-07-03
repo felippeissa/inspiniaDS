@@ -12,6 +12,25 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Theme Config Js -->
+    <!-- Padrão SISLOG: minimal + sidenav light (corrige config cacheada de outras visitas) -->
+    <script>
+        (function () {
+            try {
+                var KEY = '__INSPINIA_CONFIG__', STAMP = '__SISLOG_THEME_V1__';
+                if (!sessionStorage.getItem(STAMP)) {
+                    sessionStorage.removeItem(KEY);
+                    sessionStorage.setItem(STAMP, '1');
+                }
+                var c = JSON.parse(sessionStorage.getItem(KEY) || 'null');
+                if (c) {
+                    c.skin = 'minimal';
+                    c.menu = c.menu || {};
+                    c.menu.color = 'light';
+                    sessionStorage.setItem(KEY, JSON.stringify(c));
+                }
+            } catch (e) { }
+        })();
+    </script>
     <script src="assets/js/config.js"></script>
 
     <!-- Vendor css -->
